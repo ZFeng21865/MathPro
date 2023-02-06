@@ -1,3 +1,4 @@
+using IMathLib;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MathProApi.Controllers
@@ -9,16 +10,18 @@ namespace MathProApi.Controllers
         
 
         private readonly ILogger<BasicController> _logger;
+        private readonly IMyMathLib _mathLib;
 
-        public BasicController(ILogger<BasicController> logger)
+        public BasicController(ILogger<BasicController> logger, IMyMathLib mathLib)
         {
             _logger = logger;
+            _mathLib = mathLib;
         }
 
         [HttpGet(Name = "Add")]
-        public decimal Add(decimal n1, decimal n2)
+        public decimal Add(decimal a, decimal b)
         {
-            return n1 + n2;
+            return _mathLib.Add(a, b);
         }
     }
 }
