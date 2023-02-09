@@ -27,5 +27,19 @@ namespace MathProApi.Test
             Assert.IsTrue(_mathLib.Add(1.2m, 2.3m) == 3.5m);
             Assert.IsFalse(_mathLib.Add(5.1m, 7.2m) == 12);
         }
+
+        [TestMethod]
+        public void Test_Subtraction_whole_numbers()
+        {
+            Assert.IsTrue(_mathLib.Subtract(1, 2) == -1);
+            Assert.IsTrue(_mathLib.Subtract(10, 3) == 7);
+        }
+
+        [TestMethod]
+        public void Test_Subtraction_floating_numbers()
+        {
+            Assert.IsTrue(_mathLib.Subtract(1.2m, 2.3m) == -1.1m);
+            Assert.IsTrue(_mathLib.Subtract(15.3m, 7.2m) == 8.1m);
+        }
     }
 }

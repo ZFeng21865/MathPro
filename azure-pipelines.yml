@@ -6,6 +6,7 @@
 trigger:
 - main
 - dev_addition
+- dev_subtraction
 
 pool:
   vmImage: 'windows-latest'
