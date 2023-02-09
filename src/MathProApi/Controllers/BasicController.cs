@@ -3,8 +3,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace MathProApi.Controllers
 {
+    /// <summary>
+    /// Basic arithmetic operation controller.
+    /// </summary>
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class BasicController : ControllerBase
     {
         
@@ -18,10 +21,28 @@ namespace MathProApi.Controllers
             _mathLib = mathLib;
         }
 
-        [HttpGet(Name = "Add")]
+        /// <summary>
+        /// Addition.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        [HttpGet("add")]
         public decimal Add(decimal a, decimal b)
         {
             return _mathLib.Add(a, b);
+        }
+
+        /// <summary>
+        /// Subtraction.
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <returns></returns>
+        [HttpGet("subtract")]
+        public decimal Subtract(decimal a, decimal b)
+        {
+            return _mathLib.Subtract(a, b);
         }
     }
 }

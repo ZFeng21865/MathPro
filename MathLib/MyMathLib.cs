@@ -8,5 +8,10 @@ namespace MathLib
         {
             return a + b;
         }
+
+        public decimal Subtract(decimal a, decimal b)
+        {
+            return a - b;
+        }
     }
 }
