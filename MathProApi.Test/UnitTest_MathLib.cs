@@ -41,5 +41,12 @@ namespace MathProApi.Test
             Assert.IsTrue(_mathLib.Subtract(1.2m, 2.3m) == -1.1m);
             Assert.IsTrue(_mathLib.Subtract(15.3m, 7.2m) == 8.1m);
         }
+
+        [TestMethod]
+        public void Test_Subtraction_mixed_numbers()
+        {
+            Assert.IsTrue(_mathLib.Subtract(1m, 2.3m) == -1.3m);
+            Assert.IsTrue(_mathLib.Subtract(15.3m, 7.2m) == 8.1m);
+        }
     }
 }
