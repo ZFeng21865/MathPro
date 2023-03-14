@@ -1,7 +1,10 @@
 using IMathLib;
 using MathLib;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseSerilog((ctx, cfg) => cfg.ReadFrom.Configuration(ctx.Configuration));
 
 // Add services to the container.
 builder.Services.AddSingleton<IMyMathLib, MyMathLib>();
