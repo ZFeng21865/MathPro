@@ -10,6 +10,7 @@ namespace MathProApi.Controllers
     /// 
     /// </summary>
     [Route("api/[controller]")]
+    [Produces("application/json")]
     [ApiController]
     public class BigNumberController : ControllerBase
     {
@@ -46,6 +47,10 @@ namespace MathProApi.Controllers
         /// <response code="200">Returns the sum along with trace ID</response>
         /// <response code="400">Invalid input</response>
         [HttpPost("Add")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BigNumberCalculatorResponse))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(MathProApiError))]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized, Type = typeof(MathProApiError))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(MathProApiError))]
         public async Task<IActionResult> Add([FromBody] BigNumberCalculationRequest request)
         {
             string traceID = Guid.NewGuid().ToString();
@@ -53,16 +58,24 @@ namespace MathProApi.Controllers
 
             _logger.LogTrace($"{traceID} - Customer reference number: {request.CustomerReferenceNumber}");
 
-            var sum = await Task.FromResult(_mathLib.Add(request.Num1, request.Num2));
-            BigNumberCalculatorResponse resp = new BigNumberCalculatorResponse
+            try
             {
-                TraceID = traceID,
-                CustomerReferenceNumber = request.CustomerReferenceNumber,
-                CalculationResult = sum
-            };
+                var sum = await Task.FromResult(_mathLib.Add(request.Num1, request.Num2));
+                BigNumberCalculatorResponse resp = new BigNumberCalculatorResponse
+                {
+                    TraceID = traceID,
+                    CustomerReferenceNumber = request.CustomerReferenceNumber,
+                    CalculationResult = sum
+                };
 
-            _logger.LogTrace($"{traceID} - END Add");
-            return Ok(resp);
+                _logger.LogTrace($"{traceID} - END Add");
+
+                return Ok(resp);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex);
+            }
         }
     }
 }
