@@ -14,6 +14,11 @@ namespace MathProApi.Controllers
         private readonly ILogger<BasicController> _logger;
         private readonly IMyMathLib _mathLib;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="logger"></param>
+        /// <param name="mathLib"></param>
         public BasicController(ILogger<BasicController> logger, IMyMathLib mathLib)
         {
             _logger = logger;

@@ -1,5 +1,7 @@
 ﻿using IMathLib;
 using Microsoft.Extensions.Logging;
+using System.Globalization;
+using System.Numerics;
 
 namespace MathLib
 {
@@ -85,6 +87,37 @@ namespace MathLib
                 _logger.LogError($"Exception in Divide: {ex.Message}-{ex.InnerException?.Message}");
                 throw ex;
             }
+        }
+
+        public string Add(string a, string b)
+        {
+            if(!BigInteger.TryParse(a, NumberStyles.Number, CultureInfo.InvariantCulture, out BigInteger num1))
+            {
+                throw new Exception("Invalid number a");
+            }
+
+            if (!BigInteger.TryParse(b, NumberStyles.Number, CultureInfo.InvariantCulture, out BigInteger num2))
+            {
+                throw new Exception("Invalid number b");
+            }
+
+            var sum = num1 + num2;
+            return sum.ToString();
+        }
+
+        public string Subtract(string a, string b)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string Multiply(string a, string b)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string Divide(string a, string b)
+        {
+            throw new NotImplementedException();
         }
     }
 }

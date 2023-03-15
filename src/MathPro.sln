@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathProApi.Test", "..\MathP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathLib.Test", "MathLib.Test\MathLib.Test.csproj", "{787A0A83-FA6C-417B-8E50-E0B51F9A2A6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathProApi.Common", "MathProApi.Common\MathProApi.Common.csproj", "{E8A3D939-3C41-4040-B8AA-1E6C793021D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{787A0A83-FA6C-417B-8E50-E0B51F9A2A6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{787A0A83-FA6C-417B-8E50-E0B51F9A2A6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{787A0A83-FA6C-417B-8E50-E0B51F9A2A6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8A3D939-3C41-4040-B8AA-1E6C793021D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8A3D939-3C41-4040-B8AA-1E6C793021D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8A3D939-3C41-4040-B8AA-1E6C793021D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8A3D939-3C41-4040-B8AA-1E6C793021D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
