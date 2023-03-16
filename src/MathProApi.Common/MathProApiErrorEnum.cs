@@ -12,6 +12,11 @@ namespace MathProApi.Common
     public enum MathProApiErrorEnum
     {
         /// <summary>
+        /// Model state validation error.
+        /// </summary>
+        InvalidInput = 40000,
+
+        /// <summary>
         /// Operand is invalid.
         /// </summary>
         InvalidOperand = 40001,
