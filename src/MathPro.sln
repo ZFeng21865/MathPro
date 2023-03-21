@@ -5,11 +5,15 @@ VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathProApi", "MathProApi\MathProApi.csproj", "{1C12D02F-718D-45B9-AA7A-57D9C19B3C61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathLib", "..\MathLib\MathLib.csproj", "{BFC87986-A1D9-4EFB-8F20-F38B99C59562}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathLib", "..\MathLib\MathLib.csproj", "{BFC87986-A1D9-4EFB-8F20-F38B99C59562}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IMathLib", "..\IMathLib\IMathLib.csproj", "{9FC9875D-83D5-4691-8D2D-53CE48C6CB35}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IMathLib", "..\IMathLib\IMathLib.csproj", "{9FC9875D-83D5-4691-8D2D-53CE48C6CB35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathProApi.Test", "..\MathProApi.Test\MathProApi.Test.csproj", "{C3E35E30-BCEB-4C33-862C-82FA7BA1EA1A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MathProApi.Test", "..\MathProApi.Test\MathProApi.Test.csproj", "{C3E35E30-BCEB-4C33-862C-82FA7BA1EA1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathLib.Test", "MathLib.Test\MathLib.Test.csproj", "{787A0A83-FA6C-417B-8E50-E0B51F9A2A6F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MathProApi.Common", "MathProApi.Common\MathProApi.Common.csproj", "{E8A3D939-3C41-4040-B8AA-1E6C793021D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +37,14 @@ Global
 		{C3E35E30-BCEB-4C33-862C-82FA7BA1EA1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3E35E30-BCEB-4C33-862C-82FA7BA1EA1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3E35E30-BCEB-4C33-862C-82FA7BA1EA1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{787A0A83-FA6C-417B-8E50-E0B51F9A2A6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{787A0A83-FA6C-417B-8E50-E0B51F9A2A6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{787A0A83-FA6C-417B-8E50-E0B51F9A2A6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{787A0A83-FA6C-417B-8E50-E0B51F9A2A6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8A3D939-3C41-4040-B8AA-1E6C793021D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8A3D939-3C41-4040-B8AA-1E6C793021D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8A3D939-3C41-4040-B8AA-1E6C793021D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8A3D939-3C41-4040-B8AA-1E6C793021D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
