@@ -72,9 +72,22 @@ namespace MathProApi.Controllers
 
                 return Ok(resp);
             }
-            catch (Exception ex)
+            catch (MathProException ex)
             {
-                return BadRequest(ex);
+                _logger.LogError($"{traceID} - BigNumber Add POST error: {ex.Code}-{ex.GetExceptionDetail()}");
+                return HttpHelper.GetStatusCodeFromException(ex, this, traceID, request.CustomerReferenceNumber);
+            }
+            catch(ApplicationException ex)
+            {
+                _logger.LogError($"{traceID} - Application exception: {ex.ToString()}");
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    new MathProApiError
+                    {
+                        TraceID = traceID,
+                        CustomerReferenceNumber = request.CustomerReferenceNumber,
+                        Code = MathProApiErrorCode.ServerError,
+                        Message = "Unknown error"
+                    });
             }
         }
     }

@@ -38,7 +38,7 @@ builder.Services.AddControllers()
             return new BadRequestObjectResult(
                         new MathProApiError
                             {
-                                Code = MathProApiErrorEnum.InvalidInput,
+                                Code = MathProApiErrorCode.InvalidInput,
                                 Message = "Invalid input",
                                 TraceID = traceID
                             });

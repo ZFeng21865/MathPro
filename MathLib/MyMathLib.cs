@@ -1,4 +1,5 @@
 ﻿using IMathLib;
+using MathProApi.Common;
 using Microsoft.Extensions.Logging;
 using System.Globalization;
 using System.Numerics;
@@ -85,7 +86,7 @@ namespace MathLib
             catch(DivideByZeroException ex)
             {
                 _logger.LogError($"Exception in Divide: {ex.Message}-{ex.InnerException?.Message}");
-                throw ex;
+                throw new MathProException(MathProApiErrorCode.InvalidOperand, "divisor can't be zero");
             }
         }
 
@@ -93,12 +94,12 @@ namespace MathLib
         {
             if(!BigInteger.TryParse(a, NumberStyles.Number, CultureInfo.InvariantCulture, out BigInteger num1))
             {
-                throw new Exception("Invalid number a");
+                throw new MathProException(MathProApiErrorCode.InvalidOperand, a);
             }
 
             if (!BigInteger.TryParse(b, NumberStyles.Number, CultureInfo.InvariantCulture, out BigInteger num2))
             {
-                throw new Exception("Invalid number b");
+                throw new MathProException(MathProApiErrorCode.InvalidOperand, b);
             }
 
             var sum = num1 + num2;

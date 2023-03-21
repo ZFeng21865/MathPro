@@ -24,7 +24,7 @@ namespace MathProApi.Common
         /// <summary>
         /// Error code.
         /// </summary>
-        public MathProApiErrorEnum Code { get; set; }
+        public MathProApiErrorCode Code { get; set; }
 
         /// <summary>
         /// Error message.
