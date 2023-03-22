@@ -1,4 +1,5 @@
 using IMathLib;
+using MathProApi.Common;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Serilog;
@@ -67,10 +68,19 @@ namespace MathLib.Test
         }
 
         [TestMethod]
-        [ExpectedException(typeof(InvalidOperationException))]
+        //[ExpectedException(typeof(DivideByZeroException))]
         public void Test_Divide_by_zero()
         {
-            _mathLib.Divide(5m, 0m);
+
+            try
+            {
+                _mathLib.Divide(5m, 0m);
+                Assert.Fail("Exception expected");
+            }
+            catch (MathProException ex)
+            {
+                Assert.IsTrue(ex.Code == MathProApiErrorCode.InvalidOperand);
+            }
         }
     }
 }
