@@ -90,5 +90,55 @@ namespace MathProApi.Controllers
                     });
             }
         }
+
+        /// <summary>
+        /// Subtraction of two big numbers.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost("Subtract")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BigNumberCalculatorResponse))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(MathProApiError))]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized, Type = typeof(MathProApiError))]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(MathProApiError))]
+        public async Task<IActionResult> Subtract([FromBody] BigNumberCalculationRequest request)
+        {
+            string traceID = Guid.NewGuid().ToString();
+            _logger.LogTrace($"{traceID} - START Subtract");
+
+            _logger.LogTrace($"{traceID} - Customer reference number: {request.CustomerReferenceNumber}");
+
+            try
+            {
+                var sum = await Task.FromResult(_mathLib.Subtract(request.Num1, request.Num2));
+                BigNumberCalculatorResponse resp = new BigNumberCalculatorResponse
+                {
+                    TraceID = traceID,
+                    CustomerReferenceNumber = request.CustomerReferenceNumber,
+                    CalculationResult = sum
+                };
+
+                _logger.LogTrace($"{traceID} - END Add");
+
+                return Ok(resp);
+            }
+            catch (MathProException ex)
+            {
+                _logger.LogError($"{traceID} - BigNumber Add POST error: {ex.Code}-{ex.GetExceptionDetail()}");
+                return HttpHelper.GetStatusCodeFromException(ex, this, traceID, request.CustomerReferenceNumber);
+            }
+            catch (ApplicationException ex)
+            {
+                _logger.LogError($"{traceID} - Application exception: {ex.ToString()}");
+                return StatusCode(StatusCodes.Status500InternalServerError,
+                    new MathProApiError
+                    {
+                        TraceID = traceID,
+                        CustomerReferenceNumber = request.CustomerReferenceNumber,
+                        Code = MathProApiErrorCode.ServerError,
+                        Message = "Unknown error"
+                    });
+            }
+        }
     }
 }
