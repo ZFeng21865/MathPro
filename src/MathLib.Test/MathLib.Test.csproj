@@ -19,8 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\IMathLib\IMathLib.csproj" />
-    <ProjectReference Include="..\..\MathLib\MathLib.csproj" />
+    <ProjectReference Include="..\IMathLib\IMathLib.csproj" />
+    <ProjectReference Include="..\MathLib\MathLib.csproj" />
+    <ProjectReference Include="..\MathProApi.Common\MathProApi.Common.csproj" />
   </ItemGroup>
 
 </Project>
