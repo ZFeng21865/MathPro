@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\IMathLib\IMathLib.csproj" />
-    <ProjectReference Include="..\src\MathProApi.Common\MathProApi.Common.csproj" />
+    <ProjectReference Include="..\MathProApi.Common\MathProApi.Common.csproj" />
   </ItemGroup>
 
 </Project>

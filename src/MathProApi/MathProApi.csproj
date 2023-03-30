@@ -6,6 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Version>1.1.0</Version>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <AnalysisLevel>latest-recommended</AnalysisLevel>
+    <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,8 +25,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\IMathLib\IMathLib.csproj" />
-    <ProjectReference Include="..\..\MathLib\MathLib.csproj" />
+    <ProjectReference Include="..\IMathLib\IMathLib.csproj" />
+    <ProjectReference Include="..\MathLib\MathLib.csproj" />
     <ProjectReference Include="..\MathProApi.Common\MathProApi.Common.csproj" />
   </ItemGroup>
 
