@@ -124,7 +124,18 @@ namespace MathLib
 
         public string Multiply(string a, string b)
         {
-            throw new NotImplementedException();
+            if (!BigInteger.TryParse(a, NumberStyles.Number, CultureInfo.InvariantCulture, out BigInteger num1))
+            {
+                throw new MathProException(MathProApiErrorCode.InvalidOperand, a);
+            }
+
+            if (!BigInteger.TryParse(b, NumberStyles.Number, CultureInfo.InvariantCulture, out BigInteger num2))
+            {
+                throw new MathProException(MathProApiErrorCode.InvalidOperand, b);
+            }
+
+            var product = num1 * num2;
+            return product.ToString();
         }
 
         public string Divide(string a, string b)
