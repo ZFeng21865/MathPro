@@ -134,8 +134,7 @@ namespace MathLib
                 throw new MathProException(MathProApiErrorCode.InvalidOperand, b);
             }
 
-            var product = num1 * num2;
-            return product.ToString();
+            return (num1 * num2).ToString();
         }
 
         public string Divide(string a, string b)

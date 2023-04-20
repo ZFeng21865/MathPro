@@ -141,6 +141,11 @@ namespace MathProApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Multiplication of two big numbers.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPost("Multiply")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(BigNumberCalculatorResponse))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(MathProApiError))]
